@@ -26,21 +26,41 @@ export default function Home() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section id="home" className="relative pt-40 pb-20 px-6">
+      <section id="home" className="relative min-h-screen flex flex-col justify-center px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 text-[#a5b4fc] text-xs font-semibold mb-8 animate-slide-down tracking-wide">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 text-[#a5b4fc] text-xs font-semibold mb-10 animate-slide-down tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-pulse" />
             Spring 2026 · 3 Projects Active
           </div>
 
           {/* Heading */}
-          <h1 className="text-7xl sm:text-8xl font-bold tracking-tight leading-[1.04] mb-4 animate-fade-up delay-1">
+          <h1 className="text-8xl sm:text-9xl font-bold tracking-tight leading-[1.02] mb-6 animate-fade-up delay-1">
             <span className="gradient-text">Kappa Theta Pi</span>
           </h1>
-          <p className="text-xl text-indigo-300/70 font-medium animate-fade-up delay-2">
+          <p className="text-2xl text-indigo-300/70 font-medium animate-fade-up delay-2">
             USC Chapter · Spring 2026 Projects
           </p>
+        </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-5">
+          <span className="text-[10px] text-slate-600 uppercase tracking-widest">Scroll</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="text-slate-600 animate-bounce"
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <polyline points="19 12 12 19 5 12" />
+          </svg>
         </div>
       </section>
 
