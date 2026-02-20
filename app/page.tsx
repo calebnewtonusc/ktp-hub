@@ -39,7 +39,7 @@ export default function Home() {
             <span className="gradient-text">Kappa Theta Pi</span>
           </h1>
           <p className="text-2xl text-indigo-300/70 font-medium animate-fade-up delay-2">
-            USC Chapter · Spring 2026 Projects
+            University of Southern California
           </p>
         </div>
 
