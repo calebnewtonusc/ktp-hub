@@ -3,13 +3,6 @@ import ProjectCard from "@/components/project-card";
 import { projects } from "@/lib/projects";
 import Image from "next/image";
 
-const stats = [
-  { value: "3", label: "Active Clients" },
-  { value: "15+", label: "Members" },
-  { value: "3", label: "Disciplines" },
-  { value: "S'26", label: "Cohort" },
-];
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0d112b] text-white overflow-x-hidden">
@@ -59,25 +52,10 @@ export default function Home() {
           <p className="text-lg text-indigo-300/70 font-medium mb-3 animate-fade-up delay-1">
             USC Chapter
           </p>
-          <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed mb-12 animate-fade-up delay-2">
+          <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed animate-fade-up delay-2">
             USC&apos;s premier professional technology fraternity — building real
             products and strategies for real clients, one cohort at a time.
           </p>
-
-          {/* Stats row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-up delay-3">
-            {stats.map(({ value, label }) => (
-              <div
-                key={label}
-                className="flex flex-col items-center gap-1.5 py-4 px-3 rounded-xl border border-[#818cf8]/15 bg-[#818cf8]/5"
-              >
-                <span className="text-2xl font-bold text-[#a5b4fc]">
-                  {value}
-                </span>
-                <span className="text-xs text-slate-500">{label}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

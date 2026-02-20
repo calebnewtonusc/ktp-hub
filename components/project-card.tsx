@@ -44,7 +44,7 @@ export default function ProjectCard({
 
         {project.logo ? (
           <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden border"
+            className="w-20 h-20 rounded-xl flex items-center justify-center overflow-hidden border"
             style={{
               background: `${project.accent}18`,
               borderColor: `${project.accent}30`,
@@ -53,14 +53,14 @@ export default function ProjectCard({
             <Image
               src={project.logo}
               alt={project.name}
-              width={48}
-              height={48}
+              width={64}
+              height={64}
               className="object-contain"
             />
           </div>
         ) : (
           <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center border text-xl font-bold"
+            className="w-20 h-20 rounded-xl flex items-center justify-center border text-xl font-bold"
             style={{
               background: `${project.accent}18`,
               borderColor: `${project.accent}30`,
