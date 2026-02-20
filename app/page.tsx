@@ -114,7 +114,7 @@ export default function Home() {
           </a>
           <div className="flex items-center gap-4 text-xs text-slate-600">
             <a
-              href="#projects"
+              href="#home"
               className="hover:text-[#a5b4fc] transition-colors duration-200"
             >
               Back to top
