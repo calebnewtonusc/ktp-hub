@@ -107,7 +107,7 @@ export default function Home() {
             />
             <div>
               <p className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors duration-200">
-                Kappa Theta Pi — USC
+                Kappa Theta Pi · USC
               </p>
               <p className="text-xs text-slate-600">Spring 2026 Client Portfolio</p>
             </div>

@@ -4,9 +4,9 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "KTP @ USC — Spring 2026 Projects",
+  title: "KTP @ USC: Spring 2026 Projects",
   description:
-    "Kappa Theta Pi at the University of Southern California — Spring 2026 client project portfolio.",
+    "Kappa Theta Pi at the University of Southern California, Spring 2026 client project portfolio.",
 };
 
 export default function RootLayout({

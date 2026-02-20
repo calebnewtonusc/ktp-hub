@@ -7,6 +7,7 @@ export interface Project {
   deliverables: string[];
   accent: string;
   logo?: string;
+  invertLogo?: boolean;
   url: string;
   repo: string;
 }
@@ -18,7 +19,7 @@ export const projects: Project[] = [
     tagline: "AI SaaS Pricing & Market Strategy",
     disciplines: ["Tech Consulting", "Product", "ROI Modeling", "Competitor Analysis"],
     description:
-      "Developing a pricing and cost model for an AI-driven SaaS product through market research, competitor analysis, and ROI modeling — building a sustainable pricing strategy and product positioning framework for Inovient's AI-powered platform.",
+      "Developing a pricing and cost model for an AI-driven SaaS product through market research, competitor analysis, and ROI modeling, building a sustainable pricing strategy and product positioning framework for Inovient's AI-powered platform.",
     deliverables: [
       "Competitor landscape analysis",
       "Market research framework",
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     ],
     accent: "#10B981",
     logo: "/logos/inovient.png",
+    invertLogo: true,
     url: "https://inovient.vercel.app/",
     repo: "https://github.com/calebnewtonusc/inovient",
   },
@@ -36,7 +38,7 @@ export const projects: Project[] = [
     tagline: "Data-Driven Home Care Strategy",
     disciplines: ["Strategy", "Data Analysis", "Tech Recommendations"],
     description:
-      "Partnering with a premium non-medical home care agency in Los Angeles County to deliver data analysis-based insights and technology recommendations that improve financial visibility and scalable growth — while preserving their high-touch, person-centered care model.",
+      "Partnering with a premium non-medical home care agency in Los Angeles County to deliver data analysis-based insights and technology recommendations that improve financial visibility and scalable growth, while preserving their high-touch, person-centered care model.",
     deliverables: [
       "Data analysis & financial insights",
       "Technology stack recommendations",
@@ -54,7 +56,7 @@ export const projects: Project[] = [
     tagline: "Emergency UX Redesign",
     disciplines: ["Mobile App Design", "UX Research", "Figma", "Usability Testing"],
     description:
-      "Redesigning Immuny's mobile app interface to minimize cognitive load and ensure users can navigate with minimal thinking time — especially during high-stress allergic reaction emergencies when speed and clarity are critical.",
+      "Redesigning Immuny's mobile app interface to minimize cognitive load and ensure users can navigate with minimal thinking time, especially during high-stress allergic reaction emergencies when speed and clarity are critical.",
     deliverables: [
       "UX research & usability interviews",
       "Figma prototype & design system",
