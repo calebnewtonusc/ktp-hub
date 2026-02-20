@@ -1,6 +1,7 @@
 "use client";
 
 import { Project } from "@/lib/projects";
+import { useScrollReveal } from "@/lib/use-scroll-reveal";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -12,19 +13,22 @@ export default function ProjectCard({
   index?: number;
 }) {
   const [hovered, setHovered] = useState(false);
-  const delayClass = `delay-${Math.min(index, 7)}`;
+  const revealRef = useScrollReveal<HTMLDivElement>();
+  const staggerDelay = `${index * 0.12}s`;
   const num = String(index + 1).padStart(2, "0");
 
   return (
     <div
-      className={`group flex flex-col sm:flex-row rounded-2xl overflow-hidden border transition-all duration-500 animate-fade-up ${delayClass}`}
+      ref={revealRef}
+      className="reveal-scale group flex flex-col sm:flex-row rounded-2xl overflow-hidden border transition-[border-color,box-shadow,transform] duration-500"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
+        transitionDelay: staggerDelay,
         borderColor: hovered
           ? `${project.accent}50`
           : "rgba(129, 140, 248, 0.1)",
-        transform: hovered ? "translateY(-2px)" : "translateY(0)",
+        transform: hovered ? "translateY(-2px)" : undefined,
         boxShadow: hovered
           ? `0 20px 60px -12px ${project.accent}30`
           : "none",

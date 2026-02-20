@@ -1,9 +1,14 @@
+"use client";
+
 import Nav from "@/components/nav";
 import ProjectCard from "@/components/project-card";
 import { projects } from "@/lib/projects";
 import Image from "next/image";
+import { useScrollReveal } from "@/lib/use-scroll-reveal";
 
 export default function Home() {
+  const sectionHeaderRef = useScrollReveal();
+
   return (
     <div className="min-h-screen bg-[#0d112b] text-white overflow-x-hidden">
       {/* Grid texture */}
@@ -21,40 +26,20 @@ export default function Home() {
       <Nav />
 
       {/* ── Hero ── */}
-      <section id="home" className="relative pt-36 pb-20 px-6">
-        <div className="max-w-3xl mx-auto text-center">
+      <section id="home" className="relative pt-40 pb-20 px-6">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 text-[#a5b4fc] text-xs font-semibold mb-8 animate-slide-down tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-pulse" />
             Spring 2026 · 3 Projects Active
           </div>
 
-          {/* KTP Logo */}
-          <div className="flex justify-center mb-7 animate-fade-in">
-            <div
-              className="w-20 h-20 rounded-2xl bg-[#818cf8]/5 border border-[#818cf8]/20 flex items-center justify-center overflow-hidden"
-              style={{ boxShadow: "0 0 60px rgba(129,140,248,0.18)" }}
-            >
-              <Image
-                src="/ktp-logo.png"
-                alt="Kappa Theta Pi"
-                width={64}
-                height={64}
-                className="object-contain"
-              />
-            </div>
-          </div>
-
           {/* Heading */}
-          <h1 className="text-5xl sm:text-6xl font-bold tracking-tight leading-[1.08] mb-3 animate-fade-up delay-1">
+          <h1 className="text-7xl sm:text-8xl font-bold tracking-tight leading-[1.04] mb-4 animate-fade-up delay-1">
             <span className="gradient-text">Kappa Theta Pi</span>
           </h1>
-          <p className="text-lg text-indigo-300/70 font-medium mb-3 animate-fade-up delay-1">
-            USC Chapter
-          </p>
-          <p className="text-slate-400 text-sm max-w-sm mx-auto leading-relaxed animate-fade-up delay-2">
-            USC&apos;s premier professional technology fraternity — building real
-            products and strategies for real clients, one cohort at a time.
+          <p className="text-xl text-indigo-300/70 font-medium animate-fade-up delay-2">
+            USC Chapter · Spring 2026 Projects
           </p>
         </div>
       </section>
@@ -63,7 +48,7 @@ export default function Home() {
       <section id="projects" className="px-6 pb-28">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div className="flex items-center gap-4 mb-12">
+          <div ref={sectionHeaderRef} className="reveal flex items-center gap-4 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#818cf8]/20 to-[#818cf8]/20" />
             <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#818cf8]/20 bg-[#818cf8]/5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8]" />
@@ -87,21 +72,26 @@ export default function Home() {
       {/* ── Footer ── */}
       <footer className="border-t border-[#818cf8]/10 px-6 py-8">
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+          <a
+            href="https://ktp-website-2026.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 group"
+          >
             <Image
               src="/ktp-logo.png"
               alt="KTP"
               width={24}
               height={24}
-              className="opacity-40 object-contain"
+              className="opacity-40 object-contain group-hover:opacity-70 transition-opacity duration-200"
             />
             <div>
-              <p className="text-sm font-semibold text-slate-300">
+              <p className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors duration-200">
                 Kappa Theta Pi — USC
               </p>
               <p className="text-xs text-slate-600">Spring 2026 Client Portfolio</p>
             </div>
-          </div>
+          </a>
           <div className="flex items-center gap-4 text-xs text-slate-600">
             <a
               href="#projects"
