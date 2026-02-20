@@ -44,7 +44,7 @@ export default function ProjectCard({
 
         {project.logo ? (
           <div
-            className="w-20 h-20 rounded-xl flex items-center justify-center overflow-hidden border"
+            className="w-28 h-28 rounded-xl flex items-center justify-center overflow-hidden border"
             style={{
               background: `${project.accent}18`,
               borderColor: `${project.accent}30`,
@@ -53,14 +53,14 @@ export default function ProjectCard({
             <Image
               src={project.logo}
               alt={project.name}
-              width={64}
-              height={64}
+              width={96}
+              height={96}
               className="object-contain"
             />
           </div>
         ) : (
           <div
-            className="w-20 h-20 rounded-xl flex items-center justify-center border text-xl font-bold"
+            className="w-28 h-28 rounded-xl flex items-center justify-center border text-xl font-bold"
             style={{
               background: `${project.accent}18`,
               borderColor: `${project.accent}30`,
@@ -138,6 +138,8 @@ export default function ProjectCard({
         <div className="flex gap-2 mt-auto pt-4 border-t border-white/[0.05]">
           <a
             href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg transition-all duration-200"
             style={{
               background: hovered ? project.accent : `${project.accent}20`,
@@ -163,6 +165,8 @@ export default function ProjectCard({
           </a>
           <a
             href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg border border-white/10 text-slate-400 hover:text-slate-200 hover:border-white/20 transition-all duration-200"
           >
             Repository
