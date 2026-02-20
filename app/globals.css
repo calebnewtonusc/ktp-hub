@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d112b;
+  color: #ffffff;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Subtle grid background — slightly blue-tinted */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* KTP gradient text: periwinkle → lavender → periwinkle */
+.gradient-text {
+  background: linear-gradient(
+    120deg,
+    #818cf8 0%,
+    #c4b5fd 45%,
+    #e0e7ff 65%,
+    #818cf8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Staggered animation delays */
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.12s; }
+.delay-2 { animation-delay: 0.24s; }
+.delay-3 { animation-delay: 0.36s; }
+.delay-4 { animation-delay: 0.48s; }
+.delay-5 { animation-delay: 0.60s; }
+.delay-6 { animation-delay: 0.72s; }
+.delay-7 { animation-delay: 0.84s; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0d112b; }
+::-webkit-scrollbar-thumb { background: #252a4a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #323766; }
+
+/* Anchor scroll offset for fixed nav */
+#home,
+#projects {
+  scroll-margin-top: 80px;
+}
