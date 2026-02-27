@@ -1,11 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer } from "react";
+
+type NavState = { isHidden: boolean; mobileOpen: boolean };
+type NavAction =
+  | { type: "SET_HIDDEN"; payload: boolean }
+  | { type: "TOGGLE_MOBILE" }
+  | { type: "CLOSE_MOBILE" };
+
+function navReducer(state: NavState, action: NavAction): NavState {
+  switch (action.type) {
+    case "SET_HIDDEN":
+      return { ...state, isHidden: action.payload };
+    case "TOGGLE_MOBILE":
+      return { ...state, mobileOpen: !state.mobileOpen };
+    case "CLOSE_MOBILE":
+      return { ...state, mobileOpen: false };
+    default:
+      return state;
+  }
+}
+
+const initialState: NavState = { isHidden: true, mobileOpen: false };
 
 export default function Nav() {
-  const [isHidden, setIsHidden] = useState(true);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [state, dispatch] = useReducer(navReducer, initialState);
+  const { isHidden, mobileOpen } = state;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,13 +36,8 @@ export default function Nav() {
       const footerThreshold = docHeight - windowHeight - 200;
       const scrollThreshold = 50;
 
-      if (scrollY < scrollThreshold) {
-        setIsHidden(true);
-      } else if (scrollY > footerThreshold) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
+      const shouldHide = scrollY < scrollThreshold || scrollY > footerThreshold;
+      dispatch({ type: "SET_HIDDEN", payload: shouldHide });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -81,7 +97,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           className="md:hidden text-slate-400 hover:text-white transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => dispatch({ type: "TOGGLE_MOBILE" })}
           aria-label="Toggle menu"
         >
           {mobileOpen ? (
@@ -105,7 +121,7 @@ export default function Nav() {
           <a
             href="#projects"
             className="text-base text-slate-300 hover:text-white transition-colors font-medium"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => dispatch({ type: "CLOSE_MOBILE" })}
           >
             Projects
           </a>

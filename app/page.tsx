@@ -1,10 +1,14 @@
-"use client";
-
 import Nav from "@/components/nav";
 import ProjectCard from "@/components/project-card";
 import { projects } from "@/lib/projects";
 import Image from "next/image";
 import { useScrollReveal } from "@/lib/use-scroll-reveal";
+
+export const metadata = {
+  title: "KTP at USC — Spring 2026 Client Portfolio",
+  description:
+    "Kappa Theta Pi at the University of Southern California. Explore our Spring 2026 active client projects built by USC's premier technology fraternity.",
+};
 
 export default function Home() {
   const sectionHeaderRef = useScrollReveal();
