@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
+import "aos/dist/aos.css";
+import AOSInit from "@/components/AOSInit";
 
 export const metadata: Metadata = {
   title: "KTP @ USC: Spring 2026 Projects",
@@ -16,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <AOSInit />
+        {children}
+      </body>
     </html>
   );
 }

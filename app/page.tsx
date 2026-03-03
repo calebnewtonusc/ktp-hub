@@ -1,5 +1,7 @@
 import Nav from "@/components/nav";
 import ProjectCard from "@/components/project-card";
+import TypedHero from "@/components/TypedHero";
+import GranimBg from "@/components/GranimBg";
 import { projects } from "@/lib/projects";
 import Image from "next/image";
 import { useScrollReveal } from "@/lib/use-scroll-reveal";
@@ -31,7 +33,8 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section id="home" className="relative min-h-screen flex flex-col justify-center px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <GranimBg />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#818cf8]/30 bg-[#818cf8]/10 text-[#a5b4fc] text-xs font-semibold mb-10 animate-slide-down tracking-wide">
             <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8] animate-pulse" />
@@ -39,8 +42,8 @@ export default function Home() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-8xl sm:text-9xl font-bold tracking-tight leading-[1.02] mb-6 animate-fade-up delay-1">
-            <span className="gradient-text">Kappa Theta Pi</span>
+          <h1 className="text-8xl sm:text-9xl font-bold tracking-tight leading-[1.02] mb-6 animate-fade-up delay-1 min-h-[1.1em]">
+            <TypedHero />
           </h1>
           <p className="text-2xl text-indigo-300/70 font-medium animate-fade-up delay-2">
             University of Southern California
@@ -72,7 +75,7 @@ export default function Home() {
       <section id="projects" className="px-6 pb-28">
         <div className="max-w-4xl mx-auto">
           {/* Section header */}
-          <div ref={sectionHeaderRef} className="reveal flex items-center gap-4 mb-12">
+          <div ref={sectionHeaderRef} className="reveal flex items-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#818cf8]/20 to-[#818cf8]/20" />
             <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#818cf8]/20 bg-[#818cf8]/5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#818cf8]" />
@@ -87,7 +90,9 @@ export default function Home() {
           {/* Stacked horizontal cards */}
           <div className="flex flex-col gap-5">
             {projects.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
+              <div key={project.id} data-aos="fade-up" data-aos-delay={String(i * 100)}>
+                <ProjectCard project={project} index={i} />
+              </div>
             ))}
           </div>
         </div>
